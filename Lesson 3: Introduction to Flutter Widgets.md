@@ -30,6 +30,141 @@
 Below are some fundamental widgets to understand and start building Flutter UIs:
 
 ---
+### **Basic "Hello World" App in Flutter**
+
+Creating a simple "Hello World" app in Flutter is the perfect way to start understanding how Flutter works. Below is a step-by-step guide to building your first app.
+
+---
+
+### **1. Create a New Flutter Project**
+
+#### **Steps:**
+1. Open your terminal or IDE (such as Visual Studio Code or Android Studio).
+2. Run the following command to create a new project:
+   ```bash
+   flutter create hello_world_app
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd hello_world_app
+   ```
+4. Open the project in your IDE.
+
+---
+
+### **2. Open `main.dart` File**
+
+The main entry point for the Flutter application is the `main.dart` file located in the `lib` folder.
+
+---
+
+### **3. Replace the Boilerplate Code**
+
+Replace the default code in `main.dart` with the following minimal code:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Hello World App'),
+        ),
+        body: Center(
+          child: Text(
+            'Hello, World!',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **4. Explanation of the Code**
+
+#### **Key Components:**
+- **`main()` Function**:
+  - The entry point of the application.
+  - Calls `runApp()`, which inflates the widget tree.
+
+- **`MaterialApp`**:
+  - A wrapper for the app that provides Material Design widgets.
+
+- **`Scaffold`**:
+  - Provides the basic structure, including the app bar and body.
+
+- **`AppBar`**:
+  - Displays a title bar at the top of the app.
+
+- **`Center`**:
+  - Aligns its child widget to the center of the screen.
+
+- **`Text`**:
+  - Displays the "Hello, World!" message.
+
+---
+
+### **5. Run the App**
+
+#### **Steps:**
+1. Connect a device or start an emulator.
+2. Run the app using the following command:
+   ```bash
+   flutter run
+   ```
+
+#### **Expected Output**:
+- The app will display:
+  - An app bar titled **"Hello World App"**.
+  - The text **"Hello, World!"** centered on the screen in bold and larger font.
+
+---
+
+### **6. Additions to Enhance the App (Optional)**
+
+#### Add Background Color:
+```dart
+Scaffold(
+  backgroundColor: Colors.lightBlueAccent,
+  appBar: AppBar(
+    title: Text('Hello World App'),
+  ),
+  body: Center(
+    child: Text(
+      'Hello, World!',
+      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    ),
+  ),
+);
+```
+
+#### Use a Custom Font:
+1. Add the font to your project by modifying `pubspec.yaml`.
+2. Update the `Text` widget to use the custom font.
+
+---
+
+### **Assignment**
+1. Modify the app to:
+   - Change the app bar title to **"My First Flutter App"**.
+   - Display **"Welcome to Flutter!"** instead of "Hello, World!" in the body.
+   - Add a background color of your choice to the `Scaffold`.
+
+2. Explore:
+   - Replace the `Text` widget with an `Image` widget to display a Flutter logo.
+   - Add a floating action button with a print statement for interaction.
+
 
 ### **Understanding the Scaffold Widget in Flutter (Step-by-Step)**
 
@@ -1336,6 +1471,158 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+### **How to Add Google Fonts in a Flutter App (Step-by-Step)**
+
+Using **Google Fonts** in your Flutter app enhances the visual appeal of your text. The `google_fonts` package makes it easy to integrate Google Fonts into your Flutter project.
+
+---
+
+### **1. Add the `google_fonts` Dependency**
+
+#### **Steps:**
+1. Open the `pubspec.yaml` file in your Flutter project.
+2. Add the `google_fonts` package under the `dependencies` section:
+   ```yaml
+   dependencies:
+     flutter:
+       sdk: flutter
+     google_fonts: ^6.0.0
+   ```
+3. Save the file. Your IDE will automatically fetch the package, or you can run:
+   ```bash
+   flutter pub get
+   ```
+
+---
+
+### **2. Import the Package**
+
+Open the `main.dart` file and import the `google_fonts` package:
+```dart
+import 'package:google_fonts/google_fonts.dart';
+```
+
+---
+
+### **3. Using Google Fonts in Your App**
+
+You can use Google Fonts in a `Text` widget via the `GoogleFonts` class.
+
+#### **Example Code**:
+```dart
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Google Fonts Example',
+            style: GoogleFonts.lobster(fontSize: 24),
+          ),
+        ),
+        body: Center(
+          child: Text(
+            'Hello, Flutter!',
+            style: GoogleFonts.roboto(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.teal,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **4. Explanation**
+
+#### **How `GoogleFonts` Works**:
+- **`GoogleFonts.fontName`**: Use the font name to apply a specific Google Font.
+  - Example: `GoogleFonts.lobster`, `GoogleFonts.roboto`.
+
+#### **Customizing Text Styles**:
+You can customize the text using properties like:
+- `fontSize`
+- `fontWeight`
+- `color`
+- `letterSpacing`
+
+---
+
+### **5. Get Available Fonts**
+
+You can explore all available Google Fonts on the [Google Fonts package page](https://pub.dev/packages/google_fonts) or the official [Google Fonts website](https://fonts.google.com/).
+
+---
+
+### **6. Add Fonts Dynamically**
+
+You can dynamically load a font and apply it:
+```dart
+Text(
+  'Dynamic Font',
+  style: GoogleFonts.getFont('Open Sans',
+      textStyle: TextStyle(fontSize: 20, fontStyle: FontStyle.italic)),
+);
+```
+
+---
+
+### **7. Using Custom Themes with Google Fonts**
+
+You can define a global text theme using Google Fonts.
+
+#### **Example**:
+```dart
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Google Fonts with Theme'),
+        ),
+        body: Center(
+          child: Text('This uses the Poppins font!'),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **Assignment**
+
+1. Add the `google_fonts` package to your Flutter project.
+2. Display three different text styles in your app using the following fonts:
+   - **Roboto**: Bold, size 20, red color.
+   - **Lobster**: Italic, size 24, blue color.
+   - **Open Sans**: Regular, size 16, green color.
+3. Create a global text theme using the `Poppins` font. Use it throughout your app.
 
 ---
 
@@ -1583,6 +1870,259 @@ class MyApp extends StatelessWidget {
 The **Center** widget is a straightforward but vital component for creating elegant and responsive layouts in Flutter. It helps focus attention on important UI elements by placing them prominently in the center of their containers.
 
 ---
+
+### **How to Add and Use Lottie Animations in a Flutter App (Step-by-Step)**
+
+Lottie animations are lightweight, scalable, and perfect for adding engaging animations to your Flutter app. You can use the `lottie` package to easily integrate them.
+
+---
+
+### **1. Add the `lottie` Package**
+
+#### **Steps:**
+1. Open the `pubspec.yaml` file in your Flutter project.
+2. Add the `lottie` package under the `dependencies` section:
+   ```yaml
+   dependencies:
+     flutter:
+       sdk: flutter
+     lottie: ^2.4.0
+   ```
+3. Save the file and fetch the dependencies:
+   ```bash
+   flutter pub get
+   ```
+
+---
+
+### **2. Download a Lottie Animation**
+
+#### **Steps:**
+1. Visit [LottieFiles](https://lottiefiles.com/) and browse animations.
+2. Download your desired animation as a `.json` file.
+3. Place the `.json` file in your project directory, such as `assets/animations/`.
+
+#### **Example Directory Structure**:
+```
+project_directory/
+├── assets/
+│   ├── animations/
+│   │   ├── example.json
+```
+
+---
+
+### **3. Update `pubspec.yaml` to Include Lottie Assets**
+
+#### **Steps:**
+1. Add the assets path in the `flutter` section of `pubspec.yaml`:
+   ```yaml
+   flutter:
+     assets:
+       - assets/animations/example.json
+   ```
+2. Save the file and run:
+   ```bash
+   flutter pub get
+   ```
+
+---
+
+### **4. Display the Lottie Animation**
+
+Use the `Lottie.asset()` or `Lottie.network()` method to add the animation.
+
+#### **Example Code**:
+```dart
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Lottie Animation Example'),
+        ),
+        body: Center(
+          child: Lottie.asset(
+            'assets/animations/example.json',
+            width: 200,
+            height: 200,
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **5. Using Lottie Animations from the Internet**
+
+You can directly load Lottie animations using a URL.
+
+#### **Example**:
+```dart
+Lottie.network(
+  'https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json',
+  width: 300,
+  height: 300,
+);
+```
+
+---
+
+### **6. Customizing Lottie Animations**
+
+You can control the animation using various properties:
+
+- **`repeat`**: Loops the animation (default is `true`).
+- **`reverse`**: Plays the animation in reverse.
+- **`animate`**: Enables or disables the animation.
+- **`controller`**: Allows fine-grained control.
+
+#### **Example with Customization**:
+```dart
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Controlled Lottie Animation'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.asset(
+                'assets/animations/example.json',
+                controller: _controller,
+                onLoaded: (composition) {
+                  _controller
+                    ..duration = composition.duration
+                    ..forward();
+                },
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  _controller.reset();
+                  _controller.forward();
+                },
+                child: Text('Replay Animation'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **7. Adding Interactivity**
+
+You can trigger Lottie animations based on user actions, such as button clicks or gestures.
+
+#### **Example**:
+```dart
+GestureDetector(
+  onTap: () {
+    // Trigger animation logic
+  },
+  child: Lottie.asset('assets/animations/example.json'),
+);
+```
+
+---
+
+### **8. Example App with Local and Network Lottie Animations**
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Lottie Example'),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Local Lottie Animation
+            Lottie.asset(
+              'assets/animations/example.json',
+              width: 200,
+              height: 200,
+            ),
+            SizedBox(height: 20),
+            // Network Lottie Animation
+            Lottie.network(
+              'https://assets9.lottiefiles.com/packages/lf20_jcikwtux.json',
+              width: 200,
+              height: 200,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### **Assignment**
+
+1. Add the `lottie` package to your Flutter app.
+2. Display two Lottie animations:
+   - One loaded locally from your `assets/animations/` folder.
+   - One loaded from a URL.
+3. Add a button to replay the local animation when clicked.
+4. Explore and try different animations from [LottieFiles](https://lottiefiles.com/).
 
 ### **Quiz with Expandable Solutions**
 
