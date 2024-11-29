@@ -201,6 +201,25 @@ Scaffold(
 - `ListView` is used to display a list of `Card` widgets.
 - Each card has its own content inside the `Padding` widget.
 
+
+---
+### **Quick Comparison of Similar Widgets**
+Here are a few other commonly used widgets in Flutter that serve similar purposes or can be used for layout and decoration purposes, similar to `Card` and `Container`:
+
+
+| **Widget**        | **Key Features**                                                              | **Primary Use Case**                                            |
+|-------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| **Container**      | Flexible, used for decoration, layout, and constraints.                        | General-purpose container for layout, padding, margin, etc.     |
+| **Card**           | Material Design with shadow, rounded corners, and elevation.                  | Displaying content with a Material Design look.                 |
+| **DecoratedBox**   | Flexible decoration (borders, colors, shadows) but no layout impact.          | Applying visual decorations to widgets without layout changes.  |
+| **ListTile**       | Pre-built structure for list items, supports icons, titles, and interaction.  | Creating standard list items with an icon, title, and optional subtitle. |
+| **ClipRRect**      | Clips its child with rounded corners.                                          | Clipping a widget to a rounded rectangle shape.                 |
+| **Stack**          | Allows layering of widgets on top of each other.                              | Creating complex layouts with overlapping widgets.              |
+| **Positioned**     | Used within a `Stack` to position widgets precisely.                           | Precisely positioning widgets in a `Stack` layout.              |
+| **FittedBox**      | Scales its child to fit the parent’s size.                                     | Scaling widgets to fit the available space, such as images.     |
+
+These widgets serve various layout and design purposes, offering you flexibility to build complex, interactive, and visually appealing UIs in Flutter.
+
 ---
 
 ### **Quiz: Understanding the Card Widget**
