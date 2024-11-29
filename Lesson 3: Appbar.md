@@ -1,4 +1,4 @@
-### **Step-by-Step Explanation of the `AppBar` Widget in Flutter**
+### **`AppBar` Widget in Flutter**
 
 The `AppBar` is an essential component of the material design system. It appears at the top of the screen and is used to display titles, icons, and actions like search, notifications, and more. You can customize the `AppBar` with different properties such as the title, actions, background color, and more.
 
